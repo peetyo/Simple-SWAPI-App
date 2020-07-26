@@ -1,10 +1,31 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import {  View, FlatList, Text } from "react-native";
+import { globalStyles } from '../styles/global';
+import { RouteProp } from '@react-navigation/native';
+import { RootStackParamList } from '../App'
 
-const Films: React.FC = () => {
+type FilmsRouteProp = RouteProp<
+  RootStackParamList,
+  'Films'
+>;
+
+type Props = {
+  route: FilmsRouteProp;
+};
+const Films: React.FC<Props> = ({ route }) => {
+  
+  const films = route.params;
+
   return (
-    <View>
-      <Text>Films screen</Text>
+    <View style={globalStyles.container}>
+      <FlatList
+        data={films}
+        renderItem={({ item }) => (
+        <Text style={globalStyles.text}>URL: {item}</Text>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        style={globalStyles.flatListStyle}
+      />
     </View>
   );
 };

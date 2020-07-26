@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../App'
 
 import { globalStyles } from "../styles/global";
 
 import PersonCard from "../components/PersonCard";
 
-const Home: React.FC = () => {
+type HomeNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Home'
+>;
+
+type Props = {
+  navigation: HomeNavigationProp;
+};
+
+const Home: React.FC<Props> = ({ navigation }) => {
   const [list, setList] = useState([
     {
       name: "Luke Skywalker",
@@ -94,9 +105,9 @@ const Home: React.FC = () => {
         data={list}
         renderItem={({ item }) => (
           <TouchableOpacity
-          // onPress= send to films
+            onPress={() => navigation.navigate("Films", item.films)}
           >
-            <PersonCard person={item}/>
+            <PersonCard person={item} />
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => index.toString()}

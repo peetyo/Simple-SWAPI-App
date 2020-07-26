@@ -50,9 +50,7 @@ const PersonCard: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   card: {
-    // marginBottom: 10,
     width: "100%",
-    
     backgroundColor: "#282727",
     padding: 10,
     borderTopLeftRadius: 5,

@@ -6,7 +6,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./screens/Home";
 import Films from "./screens/Films";
 
-const Stack = createStackNavigator();
+
+export type RootStackParamList = {
+  Home: undefined;
+  Films: string[];
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
