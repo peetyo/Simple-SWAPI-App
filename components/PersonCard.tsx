@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     width: "100%",
     margin: 0,
     padding: 0,
-    marginBottom: 10,
+    marginBottom: 15,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
   },
