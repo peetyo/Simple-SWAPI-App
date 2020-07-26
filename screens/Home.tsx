@@ -3,6 +3,8 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 import { globalStyles } from "../styles/global";
 
+import PersonCard from "../components/PersonCard";
+
 const Home: React.FC = () => {
   const [list, setList] = useState([
     {
@@ -94,7 +96,7 @@ const Home: React.FC = () => {
           <TouchableOpacity
           // onPress= send to films
           >
-            <Text>{item.name}</Text>
+            <PersonCard person={item}/>
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => index.toString()}
