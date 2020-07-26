@@ -13,4 +13,4 @@ export type Film = {
   created: Date;
   edited: Date;
   url: string;
-}
+};
