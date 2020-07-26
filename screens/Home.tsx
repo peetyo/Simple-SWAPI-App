@@ -1,15 +1,22 @@
 import React, { useEffect } from "react";
-import { View, FlatList, TouchableOpacity, Text, StyleSheet } from "react-native";
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+} from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../App";
 
 import { globalStyles } from "../styles/global";
 
 import PersonCard from "../components/PersonCard";
+import SearchBar from "../components/SearchBar";
 
 import { connect } from "react-redux";
 import { AppState } from "../state/index";
-import { getPeople } from "../state/people/actions";
+import { getPeople, clearSearchResults } from "../state/people/actions";
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -23,8 +30,8 @@ const Home: React.FC<Props> = ({
   navigation,
   people: { list, peopleLoading, next },
   getPeople,
+  clearSearchResults,
 }) => {
-  
   useEffect(() => {
     if (list.length === 0) {
       getPeople(next);
@@ -33,16 +40,15 @@ const Home: React.FC<Props> = ({
   }, []);
 
   const loadMore = () => {
-    
     if (!peopleLoading && next !== null) {
       getPeople(next);
     }
   };
 
   const renderListFooter = () => {
-    if(list.length === 0 && peopleLoading=== false){
-      return <Text style={styles.flatListFooter}> No Results </Text>
-    }else{
+    if (list.length === 0 && peopleLoading === false) {
+      return <Text style={styles.flatListFooter}> No Results </Text>;
+    } else {
       return next === null ? (
         <Text style={styles.flatListFooter}> End of Results </Text>
       ) : (
@@ -53,6 +59,10 @@ const Home: React.FC<Props> = ({
 
   return (
     <View style={globalStyles.screenWrapper}>
+      <SearchBar
+        searchPeople={getPeople}
+        clearSearchResults={clearSearchResults}
+      />
       <FlatList
         data={list}
         renderItem={({ item }) => (
@@ -78,6 +88,7 @@ const mapStateToProps = (state: AppState) => ({
 
 export default connect(mapStateToProps, {
   getPeople,
+  clearSearchResults,
 })(Home);
 
 const styles = StyleSheet.create({
@@ -86,6 +97,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20,
     color: "white",
-    paddingBottom: 10
+    paddingBottom: 10,
   },
 });

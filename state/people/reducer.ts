@@ -2,6 +2,7 @@ import {
   LOADING_PEOPLE,
   RECEIVE_PEOPLE,
   RECEIVE_PEOPLE_ERROR,
+  CLEAR_SEARCH_RESULTS,
   PeopleActionTypes,
 } from "../types";
 
@@ -31,6 +32,14 @@ export default (state = initialState, action: PeopleActionTypes) => {
         ...state,
         peopleError: action.payload,
         peopleLoading: false,
+      };
+    case CLEAR_SEARCH_RESULTS:
+      return {
+        ...state,
+        list: [],
+        peopleLoading: false,
+        peopleError: "",
+        next: "",
       };
     default:
       return state;

@@ -2,6 +2,7 @@ import {
   LOADING_PEOPLE,
   RECEIVE_PEOPLE,
   RECEIVE_PEOPLE_ERROR,
+  CLEAR_SEARCH_RESULTS,
   PeopleActionTypes,
 } from "../types";
 import { Dispatch } from "redux";
@@ -28,3 +29,7 @@ export const getPeople = (endpoint: string) => async (
     });
   }
 };
+
+export const clearSearchResults = (): PeopleActionTypes=> ({
+  type: CLEAR_SEARCH_RESULTS,
+});

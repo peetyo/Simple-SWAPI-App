@@ -1,6 +1,7 @@
 export const LOADING_PEOPLE = "LOADING_PEOPLE";
 export const RECEIVE_PEOPLE = "RECEIVE_PEOPLE";
 export const RECEIVE_PEOPLE_ERROR = "RECEIVE_ERROR";
+export const CLEAR_SEARCH_RESULTS = "CLEAR_SEARCH_RESULTS";
 
 interface SetLoading {
   type: typeof LOADING_PEOPLE;
@@ -9,7 +10,6 @@ interface SetLoading {
 interface ReceivePeople {
   type: typeof RECEIVE_PEOPLE;
   payload: any;
-  // TODO create a type
 }
 
 interface ReceivePeopleError {
@@ -17,4 +17,8 @@ interface ReceivePeopleError {
   payload: string;
 }
 
-export type PeopleActionTypes = SetLoading | ReceivePeople | ReceivePeopleError;
+interface ClearSearchResults {
+  type: typeof CLEAR_SEARCH_RESULTS;
+}
+
+export type PeopleActionTypes = SetLoading | ReceivePeople | ReceivePeopleError | ClearSearchResults;
