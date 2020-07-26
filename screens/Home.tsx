@@ -100,7 +100,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   ]);
 
   return (
-    <View style={globalStyles.container}>
+    <View style={globalStyles.screenWrapper}>
       <FlatList
         data={list}
         renderItem={({ item }) => (

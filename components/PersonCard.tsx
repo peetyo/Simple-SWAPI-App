@@ -27,7 +27,7 @@ const PersonCard: React.FC<Props> = ({
   person: { name, height, mass, hair_color, birth_year },
 }) => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={globalStyles.container}>
       <View style={styles.card}>
         <Text style={styles.name}>{name}</Text>
         <View style={styles.detailsContainer}>
@@ -41,9 +41,9 @@ const PersonCard: React.FC<Props> = ({
           </View>
         </View>
       </View>
-        <View style={styles.footerBtn}>
-          <Text style={styles.footerText}>See Films</Text>
-        </View>
+      <View style={styles.footerBtn}>
+        <Text style={styles.footerText}>See Films</Text>
+      </View>
     </View>
   );
 };
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 5
+    marginBottom: 5,
   },
   detailsContainer: {
     flex: 1,
@@ -74,12 +74,12 @@ const styles = StyleSheet.create({
   },
   details: {
     width: "50%",
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
   },
   footerBtn: {
-    flex:1,
-    backgroundColor: '#e8e8e8',
-    width:'100%',
+    flex: 1,
+    backgroundColor: "#e8e8e8",
+    width: "100%",
     margin: 0,
     padding: 0,
     marginBottom: 10,
@@ -87,9 +87,9 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
   },
   footerText: {
-    textAlign: 'center',
-    padding: 5
-  }
+    textAlign: "center",
+    padding: 5,
+  },
 });
 
 export default PersonCard;

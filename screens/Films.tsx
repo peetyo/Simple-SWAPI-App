@@ -4,6 +4,7 @@ import { globalStyles } from '../styles/global';
 import { RouteProp } from '@react-navigation/native';
 import { RootStackParamList } from '../App'
 
+import FilmCard from '../components/FilmCard'
 type FilmsRouteProp = RouteProp<
   RootStackParamList,
   'Films'
@@ -17,11 +18,11 @@ const Films: React.FC<Props> = ({ route }) => {
   const films = route.params;
 
   return (
-    <View style={globalStyles.container}>
+    <View style={globalStyles.screenWrapper}>
       <FlatList
         data={films}
         renderItem={({ item }) => (
-        <Text style={globalStyles.text}>URL: {item}</Text>
+        <FilmCard filmUrl={item}/>
         )}
         keyExtractor={(item, index) => index.toString()}
         style={globalStyles.flatListStyle}
