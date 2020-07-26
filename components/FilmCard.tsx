@@ -1,30 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
+import { Film } from "../types/Film";
 
 interface Props {
   filmUrl: string;
 }
 
-interface FilmData {
-  title: string;
-  episode_id: number;
-  opening_crawl: string;
-  director: string;
-  producer: string;
-  release_date: Date;
-  characters: string[];
-  planets: string[];
-  starships: string[];
-  vehicles: string[];
-  species: string[];
-  created: Date;
-  edited: Date;
-  url: string;
-}
-
 const FilmCard: React.FC<Props> = ({ filmUrl }) => {
-  const [filmData, setFilmData] = useState({} as FilmData);
+  const [filmData, setFilmData] = useState({} as Film);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -5,9 +5,10 @@ import {
   CLEAR_SEARCH_RESULTS,
   PeopleActionTypes,
 } from "../types";
+import {Person} from '../../types/Person'
 
 const initialState = {
-  list: [] as any[],
+  list: [] as Person[],
   peopleLoading: false,
   peopleError: "",
   next: "http://swapi.dev/api/people/?page=1",

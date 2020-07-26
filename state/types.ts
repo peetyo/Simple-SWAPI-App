@@ -1,3 +1,5 @@
+import {FetchedData} from '../types/FetchedData'
+
 export const LOADING_PEOPLE = "LOADING_PEOPLE";
 export const RECEIVE_PEOPLE = "RECEIVE_PEOPLE";
 export const RECEIVE_PEOPLE_ERROR = "RECEIVE_ERROR";
@@ -9,7 +11,7 @@ interface SetLoading {
 
 interface ReceivePeople {
   type: typeof RECEIVE_PEOPLE;
-  payload: any;
+  payload: FetchedData;
 }
 
 interface ReceivePeopleError {
@@ -21,4 +23,8 @@ interface ClearSearchResults {
   type: typeof CLEAR_SEARCH_RESULTS;
 }
 
-export type PeopleActionTypes = SetLoading | ReceivePeople | ReceivePeopleError | ClearSearchResults;
+export type PeopleActionTypes =
+  | SetLoading
+  | ReceivePeople
+  | ReceivePeopleError
+  | ClearSearchResults;

@@ -1,29 +1,9 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
+import { Person } from "../types/Person";
 
-interface Props {
-  person: {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: string[];
-    species: string[];
-    vehicles: string[];
-    starships: string[];
-    created: string;
-    edited: string;
-    url: string;
-  };
-}
-
-const PersonCard: React.FC<Props> = ({
+const PersonCard: React.FC<Person> = ({
   person: { name, height, mass, hair_color, birth_year },
 }) => {
   return (
