@@ -113,6 +113,13 @@ const Home: React.FC<Props> = ({
     // eslint-disable-next-line
   }, []);
 
+  const loadMore = () => {
+    
+    if (!peopleLoading && next !== null) {
+      getPeople(next);
+    }
+  };
+
   return (
     <View style={globalStyles.screenWrapper}>
       <FlatList
@@ -126,6 +133,8 @@ const Home: React.FC<Props> = ({
         )}
         keyExtractor={(item, index) => index.toString()}
         style={globalStyles.flatListStyle}
+        onEndReachedThreshold={0.2}
+        onEndReached={loadMore}
       />
     </View>
   );
