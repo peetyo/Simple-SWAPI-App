@@ -5,7 +5,7 @@ import {
   CLEAR_SEARCH_RESULTS,
   PeopleActionTypes,
 } from "../types";
-import {Person} from '../../types/Person'
+import { Person } from "../../types/Person";
 
 const initialState = {
   list: [] as Person[],
